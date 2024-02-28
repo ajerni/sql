@@ -18,5 +18,6 @@ $db = new DB();
         <input type="text" placeholder="Name" name="name">
         <input type="text" placeholder="Email" name="email">
         <input type="submit" value="Insert" name="insertData">
+    </form>
 </body>
 </html>
