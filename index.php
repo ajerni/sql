@@ -10,7 +10,7 @@ $id = $_POST['id'];
 $db->deleteData($id);
 }
 
-// Search Data
+// Search Data (or read all if no search value is set)
 if (isset($_GET['search'])){
     $data = $db->searchData($_GET['search']);
 } else {
