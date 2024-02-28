@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine.js Double Binding</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body>
+    <div x-data="{ message: 'Hello' }">
+      <p x-text="message"></p>
+      <input type="text" x-model="message" />
+    </div>
+  </body>
+</html>
