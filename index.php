@@ -10,6 +10,13 @@ $id = $_POST['id'];
 $db->deleteData($id);
 }
 
+// Search Data
+if (isset($_GET['search'])){
+    $data = $db->searchData($_GET['search']);
+} else {
+    $data = $db->getData();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +52,15 @@ $db->deleteData($id);
         <input type="submit" value="Edit" name="editData">
     </form>
 
+    <h1>Search</h1>
+    <form method="GET">
+        <input type="text" placeholder="Search" name="search"
+        value="<?php if(isset($_GET['search'])) echo $_GET['search'] ?>">  <!-- just to show the search value in the input field -->
+        <input type="submit" value="Search">
+    </form>
+
     <h1>Data</h1>
     <?php
-    $data = $db->getData();
     foreach($data as $i){
         echo $i['id'] . ". " . $i['name'] . " - " . $i['email'] . "<br>";
     }

@@ -41,11 +41,18 @@ class DB {
   }
 
   public function editData($id, $name){
-    
     $sql = "UPDATE userdetails SET name = :name WHERE id = :id";
     $stmt = $this->conn->prepare($sql);
     $stmt->execute(['id' => $id, 'name' => $name]);
    
+  }
+
+  public function searchData($name){
+    $sql = "SELECT * FROM userdetails WHERE name LIKE :name";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute(['name' => '%' . $name . '%']);
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
   }
 }
 
