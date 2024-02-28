@@ -36,7 +36,16 @@ class DB {
     $sql = "DELETE FROM userdetails WHERE id = :id";
     $stmt = $this->conn->prepare($sql);
     $stmt->execute(['id' => $id]);
-    echo "ID: " . $id . " was deleted";
+    echo "ID: " . $id . " was deleted" . "<br>";
+    echo $stmt->rowCount() . " row(s) affected";
+  }
+
+  public function editData($id, $name){
+    
+    $sql = "UPDATE userdetails SET name = :name WHERE id = :id";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute(['id' => $id, 'name' => $name]);
+   
   }
 }
 
